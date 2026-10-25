@@ -125,6 +125,68 @@ Isso evita problemas de direitos autorais, já que não temos permissão para re
 
 ---
 
+## 📱 App TreineSeuPvt0 (React Native + Expo)
+
+O repositório inclui um aplicativo completo desenvolvido em **React Native + Expo**, com interface atlética inspirada na estética do **[GymRats](https://www.gymrats.app/pt)** exclusivamente em **Dark Mode (Tema Escuro)**, com paleta marcante com tons vibrantes de vermelho (`#E5173F`), amarelo canário (`#FFCC00`), verde e azul em contraste com fundo preto obsidiana (`#0B0D12`).
+
+### ✨ Funcionalidades do App
+
+1. **Catálogo & Busca de Exercícios**:
+   * Busca instantânea por nome, músculo, aparelho ou dificuldade entre os **873 exercícios** traduzidos em PT-BR.
+   * Filtros rápidos por grupo muscular (Peitoral, Dorsais, Quadríceps, Bíceps, Tríceps, Ombros, Abdômen, etc.).
+   * Filtros avançados por nível, equipamento, mecânica (composto/isolado) e tipo de força (push/pull).
+   * **Visualizador de Imagens & Loop Animado**: Alternador entre posição inicial (1/2) e pico de contração (2/2), com botão de loop animado contínuo para prévia do movimento.
+   * **Demonstração em Vídeo HD**: Integração direta com tutoriais de execução correta e cadência recomendada no YouTube.
+   * Favoritar exercícios salvos localmente.
+
+2. **Montagem de Plano de Treino por Nível**:
+   * **Níveis**:
+     * 🟢 **Iniciante**: Base motora, adaptação neural, máquinas seguras, treinos AB e Full Body 3x.
+     * 🟡 **Frequente**: Hipertrofia constante, sobrecarga progressiva, divisão ABC (Push/Pull/Legs) e Upper/Lower 4x.
+     * 🔴 **Expert**: Divisão ABCDE especializada, powerbuilding, drop-sets e alta intensidade.
+   * **Gerador Inteligente de Treino**: Cria planos sob medida com base no nível, objetivo (hipertrofia, definição, força), frequência semanal (2 a 6 dias) e equipamentos disponíveis (academia, halteres ou peso corporal).
+
+3. **Modo Treino Ativo & Cronômetro de Descanso**:
+   * Cronômetro de treino em tempo real.
+   * Checklist interativo de séries com controle de repetições e carga (kg).
+   * **Cronômetro de descanso automático** (com vibração/som, botões +15s e pular).
+   * Tela de conquista e celebração GymRats ao concluir o treino.
+
+4. **Progresso & Gamificação GymRats**:
+   * Contador de dias seguidos (🔥 Streak).
+   * Histórico de treinos completados e minutos acumulados.
+   * Seletor rápido de nível do atleta.
+
+---
+
+### 🚀 Como executar o App
+
+1. **Instale as dependências** (caso ainda não tenha instalado):
+   ```bash
+   npm install
+   ```
+
+2. **Inicie o servidor de desenvolvimento Expo**:
+   ```bash
+   npx expo start
+   ```
+
+3. **Para abrir diretamente em uma plataforma**:
+   * **Web**:
+     ```bash
+     npm run web
+     ```
+   * **Android**:
+     ```bash
+     npm run android
+     ```
+   * **iOS** (no macOS com simulador ou Expo Go no iPhone):
+     ```bash
+     npm run ios
+     ```
+
+---
+
 ## 📌 Créditos
 
 * Tradução e adaptação: **Este repositório**
