@@ -35,10 +35,10 @@ export default function App() {
 
   // App persistent states
   const [userStats, setUserStats] = useState<UserStats>({
-    streak: 3,
+    streak: 0,
     lastWorkoutDate: null,
-    totalWorkouts: 4,
-    totalMinutes: 185,
+    totalWorkouts: 0,
+    totalMinutes: 0,
     selectedLevel: 'iniciante',
   });
   const [favorites, setFavorites] = useState<string[]>([]);

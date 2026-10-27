@@ -27,7 +27,7 @@ export const WorkoutPlanCard: React.FC<WorkoutPlanCardProps> = ({
   const currentLevelBadge = levelBadges[plan.level] || levelBadges.frequente;
 
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, plan.isCustom && styles.customCard]}>
       {/* Top Header */}
       <View style={styles.header}>
         <View style={styles.badgesRow}>
@@ -42,7 +42,8 @@ export const WorkoutPlanCard: React.FC<WorkoutPlanCardProps> = ({
           </View>
           {plan.isCustom && (
             <View style={styles.customBadge}>
-              <Text style={styles.customBadgeText}>PERSONALIZADO</Text>
+              <Ionicons name="person" size={10} color={THEME.colors.purple} style={{ marginRight: 4 }} />
+              <Text style={styles.customBadgeText}>CRIADO POR VOCÊ</Text>
             </View>
           )}
         </View>
@@ -65,7 +66,10 @@ export const WorkoutPlanCard: React.FC<WorkoutPlanCardProps> = ({
       {/* Routines Summary */}
       <View style={styles.routinesList}>
         {plan.routines.map((routine, idx) => (
-          <View key={routine.id || idx} style={styles.routineItem}>
+          <View
+            key={routine.id || idx}
+            style={[styles.routineItem, plan.isCustom && styles.customRoutineItem]}
+          >
             <View style={styles.routineHeader}>
               <View style={styles.routineTitleBlock}>
                 <Text style={styles.routineName}>{routine.name}</Text>
@@ -103,7 +107,12 @@ export const WorkoutPlanCard: React.FC<WorkoutPlanCardProps> = ({
                 <View style={styles.expandedDivider} />
                 {routine.exercises.map((ex, eIdx) => (
                   <View key={ex.id || eIdx} style={styles.exerciseRow}>
-                    <View style={styles.exerciseNum}>
+                    <View
+                      style={[
+                        styles.exerciseNum,
+                        plan.isCustom && styles.customExerciseNum,
+                      ]}
+                    >
                       <Text style={styles.exerciseNumText}>{eIdx + 1}</Text>
                     </View>
                     <View style={styles.exerciseDetails}>
@@ -147,6 +156,10 @@ const styles = StyleSheet.create({
     marginBottom: THEME.spacing.lg,
     borderWidth: 1,
     borderColor: THEME.colors.border,
+  },
+  customCard: {
+    backgroundColor: THEME.colors.surfaceCustom,
+    borderColor: THEME.colors.borderCustom,
   },
   header: {
     flexDirection: 'row',
@@ -222,6 +235,10 @@ const styles = StyleSheet.create({
     padding: THEME.spacing.md,
     borderWidth: 1,
     borderColor: THEME.colors.borderSubtle,
+  },
+  customRoutineItem: {
+    backgroundColor: THEME.colors.surfaceCustomElevated,
+    borderColor: 'rgba(255, 255, 255, 0.05)',
   },
   routineHeader: {
     flexDirection: 'row',
@@ -302,6 +319,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 8,
+  },
+  customExerciseNum: {
+    backgroundColor: THEME.colors.surfaceCustom,
   },
   exerciseNumText: {
     fontSize: 10,

@@ -7,6 +7,11 @@ export const THEME = {
     surfaceElevated: '#1D2230',
     surfaceHighlight: '#252C3D',
 
+    // User-created custom workout plan subtle background difference
+    surfaceCustom: '#1E2536',
+    surfaceCustomElevated: '#252F44',
+    borderCustom: '#2E3B54',
+
     // Primary Brand Red
     primary: '#E5173F',
     primaryDark: '#B80E30',

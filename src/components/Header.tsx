@@ -12,9 +12,9 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ stats, onLevelPress, onStatsPress }) => {
   const levelLabels: Record<FitnessLevel, { label: string; color: string }> = {
-    iniciante: { label: 'INICIANTE', color: THEME.colors.green },
-    frequente: { label: 'FREQUENTE', color: THEME.colors.yellow },
-    expert: { label: 'EXPERT', color: THEME.colors.primary },
+    iniciante: { label: '1', color: THEME.colors.green },
+    frequente: { label: '2', color: THEME.colors.yellow },
+    expert: { label: '3', color: THEME.colors.primary },
   };
 
   const currentLevel = levelLabels[stats.selectedLevel] || levelLabels.frequente;

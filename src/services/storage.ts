@@ -9,10 +9,10 @@ const KEYS = {
 };
 
 const DEFAULT_STATS: UserStats = {
-  streak: 3, // Initial encouragement streak GymRats style
+  streak: 0,
   lastWorkoutDate: null,
-  totalWorkouts: 4,
-  totalMinutes: 185,
+  totalWorkouts: 0,
+  totalMinutes: 0,
   selectedLevel: 'iniciante',
 };
 

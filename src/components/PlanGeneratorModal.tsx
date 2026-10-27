@@ -579,11 +579,11 @@ const styles = StyleSheet.create({
   },
   previewRoutineCard: {
     width: '100%',
-    backgroundColor: THEME.colors.surface,
+    backgroundColor: THEME.colors.surfaceCustom,
     borderRadius: THEME.borderRadius.lg,
     padding: THEME.spacing.md,
     borderWidth: 1,
-    borderColor: THEME.colors.border,
+    borderColor: THEME.colors.borderCustom,
     marginBottom: 10,
   },
   previewRoutineTitle: {

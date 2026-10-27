@@ -57,21 +57,27 @@ export const ProgressScreen: React.FC<ProgressScreenProps> = ({
       {/* TreineSeuPvt0 Consistency Flame Banner */}
       <View style={styles.streakCard}>
         <View style={styles.streakHeader}>
-          <Text style={styles.streakFlameIcon}>🔥</Text>
+          <Text style={styles.streakFlameIcon}>{stats.streak > 0 ? '🔥' : '💪'}</Text>
           <View>
-            <Text style={styles.streakCountText}>{stats.streak} Dias Seguidos</Text>
-            <Text style={styles.streakSubtitle}>Sequência Ativa no TreineSeuPvt0</Text>
+            <Text style={styles.streakCountText}>
+              {stats.streak > 0 ? `${stats.streak} Dias Seguidos` : 'Nenhum treino ainda'}
+            </Text>
+            <Text style={styles.streakSubtitle}>
+              {stats.streak > 0 ? 'Sequência Ativa no TreineSeuPvt0' : 'Inicie seu primeiro treino!'}
+            </Text>
           </View>
         </View>
 
         <Text style={styles.streakMotivationalQuote}>
-          "A constância vence qualquer obstáculo. Mantenha o foco, a força e não desista!"
+          {stats.streak > 0
+            ? '"A constância vence qualquer obstáculo. Mantenha o foco, a força e não desista!"'
+            : '"Toda jornada começa com o primeiro passo. O seu primeiro treino está esperando!"'}
         </Text>
 
         {/* Weekly Day Consistency Tracker */}
         <View style={styles.weekTrack}>
           {['S', 'T', 'Q', 'Q', 'S', 'S', 'D'].map((day, idx) => {
-            const isCompleted = idx <= Math.min(stats.streak - 1, 6);
+            const isCompleted = stats.streak > 0 && idx <= Math.min(stats.streak - 1, 6);
             return (
               <View key={idx} style={styles.dayDotCol}>
                 <View style={[styles.dayDot, isCompleted && styles.dayDotActive]}>
@@ -125,6 +131,12 @@ export const ProgressScreen: React.FC<ProgressScreenProps> = ({
             const cfg = levelLabels[lvl];
             const isCurrent = stats.selectedLevel === lvl;
 
+            const shortLabels: Record<FitnessLevel, string> = {
+              iniciante: 'Iniciante',
+              frequente: 'Frequente',
+              expert: 'Expert',
+            };
+
             return (
               <TouchableOpacity
                 key={lvl}
@@ -139,8 +151,12 @@ export const ProgressScreen: React.FC<ProgressScreenProps> = ({
                 activeOpacity={0.7}
               >
                 <View style={[styles.levelBtnDot, { backgroundColor: cfg.color }]} />
-                <Text style={[styles.levelSelectBtnText, isCurrent && { color: cfg.color }]}>
-                  {cfg.label}
+                <Text
+                  style={[styles.levelSelectBtnText, isCurrent && { color: cfg.color }]}
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                >
+                  {shortLabels[lvl]}
                 </Text>
               </TouchableOpacity>
             );
@@ -362,22 +378,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 10,
+    paddingHorizontal: 6,
     backgroundColor: THEME.colors.surfaceElevated,
     borderRadius: THEME.borderRadius.md,
     borderWidth: 1.5,
     borderColor: 'transparent',
-    gap: 6,
+    minWidth: 0,
   },
   levelBtnDot: {
     width: 6,
     height: 6,
     borderRadius: 3,
+    flexShrink: 0,
+    marginRight: 5,
   },
   levelSelectBtnText: {
     fontSize: 11,
     fontWeight: '800',
     color: THEME.colors.textMuted,
-    letterSpacing: 0.5,
+    letterSpacing: 0,
+    flexShrink: 1,
   },
   currentLevelDesc: {
     fontSize: 11,
